@@ -1,0 +1,12 @@
+{
+  "name": "hmsk-fuehrerschein-kosten",
+  "version": "1.0.0",
+  "description": "Führerschein-Kosten-Rechner: realistic driving licence cost in Germany by class, region and hours (2026).",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/",
+    "start": "python3 -m http.server 8080 --directory public"
+  }
+}

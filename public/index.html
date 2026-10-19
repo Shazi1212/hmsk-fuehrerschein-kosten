@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Führerschein-Kosten-Rechner 2026: was kostet der Führerschein?</title>
+<meta name="description" content="Realistische Führerschein-Kosten 2026 für B, B197, BE, A1, A2, A, AM und Mofa: Fahrstunden, Sonderfahrten, TÜV/DEKRA-Gebühren, Führerscheinstelle, Spanne und Aufschlüsselung. Läuft im Browser.">
+<meta name="theme-color" content="#0B0F0C">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/MartianMono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="app.css?v=1">
+</head>
+<body>
+
+<nav class="strip" aria-label="Site">
+  <div class="in">
+    <a class="home" id="lnkHome" href="/de/tools/fuehrerschein-kosten/" data-t="back">← hmsk.life</a>
+    <span class="sp"></span>
+    <button type="button" class="lang" id="langBtn" data-t="langSwitch">EN</button>
+    <a id="lnkImprint" href="/impressum/" data-t="imprint">Impressum</a>
+    <a id="lnkPrivacy" href="/datenschutz/" data-t="privacy">Datenschutz</a>
+  </div>
+</nav>
+
+<header class="head wrap">
+  <p class="cmd"><span class="ps">$</span> fuehrerschein-kosten --klasse <span id="cmdCls">B</span></p>
+  <h1 data-t="h1">Was kostet der Führerschein 2026 wirklich?</h1>
+  <p class="sub" data-t="sub"></p>
+</header>
+
+<main class="wrap layout">
+  <form id="form" class="form" novalidate autocomplete="off">
+
+    <fieldset>
+      <legend data-t="sClass">--klasse</legend>
+      <label for="cls" data-t="cls">Führerscheinklasse</label>
+      <select id="cls" name="cls"></select>
+      <p class="hint" id="classHint"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend data-t="sRegion">--region</legend>
+      <div class="grid2">
+        <div><label for="state" data-t="state">Bundesland</label><select id="state" name="state"></select></div>
+        <div><label for="town" data-t="town">Ortsgröße</label><select id="town" name="town"></select></div>
+      </div>
+      <p class="hint" id="factorInfo"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend data-t="sHours">--fahrstunden</legend>
+      <label for="hours" data-t="hours">Übungsstunden</label>
+      <input id="hours" name="hours" type="number" inputmode="numeric" min="0" max="200" step="1">
+      <p class="hint" id="hoursHint"></p>
+      <div class="special-only">
+        <p class="lbl" data-t="special">Sonderfahrten</p>
+        <div class="grid3">
+          <div><label for="sp-rural" data-t="rural">Überland</label><input id="sp-rural" data-sp="rural" type="number" inputmode="numeric" min="0" max="30" step="1"></div>
+          <div><label for="sp-motorway" data-t="motorway">Autobahn</label><input id="sp-motorway" data-sp="motorway" type="number" inputmode="numeric" min="0" max="30" step="1"></div>
+          <div><label for="sp-night" data-t="night">Nacht</label><input id="sp-night" data-sp="night" type="number" inputmode="numeric" min="0" max="30" step="1"></div>
+        </div>
+      </div>
+      <p class="hint" id="specialHint"></p>
+    </fieldset>
+
+    <fieldset class="done-box">
+      <legend data-t="sDone">--schon-erledigt</legend>
+      <label class="chk"><input type="checkbox" id="haveFirstAid" name="haveFirstAid"> <span data-t="haveFirstAid"></span></label>
+      <label class="chk"><input type="checkbox" id="haveEyeTest" name="haveEyeTest"> <span data-t="haveEyeTest"></span></label>
+    </fieldset>
+
+    <fieldset>
+      <legend data-t="sRetake">--wiederholung</legend>
+      <div class="grid2">
+        <div class="theory-only"><label for="theoryRetakes" data-t="theoryRetakes">Theorie</label><select id="theoryRetakes" name="theoryRetakes"></select></div>
+        <div class="practical-only"><label for="practicalRetakes" data-t="practicalRetakes">Praxis</label><select id="practicalRetakes" name="practicalRetakes"></select></div>
+      </div>
+      <div class="practical-only">
+        <label for="retakeLessons" data-t="retakeLessons">Extra-Fahrstunden</label>
+        <input id="retakeLessons" name="retakeLessons" type="number" inputmode="numeric" min="0" max="30" step="1">
+      </div>
+      <p class="hint" data-t="retakeHint"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend data-t="sQuote">--angebot</legend>
+      <p class="hint top" data-t="quoteHint"></p>
+      <div id="quote"></div>
+    </fieldset>
+  </form>
+
+  <section class="result" id="result" aria-live="polite" aria-labelledby="rTitle">
+    <div class="term">
+      <div class="term__bar"><i></i><i></i><i></i><span id="rTitle" data-t="rTitle">$ fuehrerschein --kosten</span></div>
+      <div class="term__body">
+        <p class="lbl" data-t="totalLabel">Realistische Gesamtkosten (typisch)</p>
+        <p class="big" id="total">0</p>
+        <p class="range" id="range"></p>
+        <dl class="kv" id="scen"></dl>
+
+        <h2 class="h3" data-t="breakdownTitle">Woraus sich die Kosten zusammensetzen</h2>
+        <div class="bar" id="bar" role="img"></div>
+        <ul class="legend" id="legend"></ul>
+
+        <table class="tbl" id="tbl">
+          <thead><tr><th data-t="colItem">Position</th><th class="n" data-t="colTyp">typisch</th><th class="n r" data-t="colRange">Spanne</th></tr></thead>
+          <tbody></tbody>
+        </table>
+
+        <p class="note" id="retakeNote"></p>
+
+        <div class="reform">
+          <p class="h3" data-t="reformTitle">Führerscheinreform</p>
+          <p data-t="reform"></p>
+        </div>
+
+        <div class="cta">
+          <a class="btn btn--ghost" id="lnkNotify" href="/de/?topic=fuehrerschein-kosten#contact" data-t="notify">Benachrichtigen, wenn die Reform gilt</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tools">
+      <button type="button" class="btn btn--ghost sm" id="shareBtn" data-t="share">Link kopieren</button>
+      <button type="button" class="btn btn--ghost sm" id="printBtn" data-t="print">Drucken</button>
+      <button type="button" class="btn btn--ghost sm" id="resetBtn" data-t="reset">Zurücksetzen</button>
+    </div>
+  </section>
+</main>
+
+<section class="wrap sources" aria-labelledby="srcTitle">
+  <h2 id="srcTitle" class="h2" data-t="srcTitle">$ cat quellen-und-annahmen.md</h2>
+  <p class="disclaimer" data-t="disclaimer"></p>
+  <ul id="assumptions"></ul>
+  <h3 class="h3" data-t="srcList">Quellen</h3>
+  <ul id="sources"></ul>
+  <p class="hint" id="checked"></p>
+</section>
+
+<footer class="wrap foot">
+  <p>MIT · <a id="lnkHome2" href="/de/tools/fuehrerschein-kosten/">hmsk.life</a></p>
+</footer>
+
+<script type="module" src="app.js?v=1"></script>
+</body>
+</html>
