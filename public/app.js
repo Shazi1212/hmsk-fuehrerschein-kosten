@@ -85,7 +85,7 @@ function applyTexts() {
   $('#lnkHome').href = $('#lnkHome2').href = base + (de ? '/de/tools/fuehrerschein-kosten/' : '/tools/fuehrerschein-kosten/');
   $('#lnkImprint').href = base + (de ? '/impressum/' : '/imprint/');
   $('#lnkPrivacy').href = base + (de ? '/datenschutz/' : '/privacy/');
-  $('#lnkNotify').href = base + (de ? '/de/?topic=fuehrerschein-kosten#contact' : '/?topic=fuehrerschein-kosten#contact');
+  $('#lnkNotify').href = base + (de ? '/de/newsletter/?topic=fuehrerschein-kosten' : '/subscribe/?topic=fuehrerschein-kosten');
 
   $('#cls').innerHTML = CLASSES.map(c => `<option value="${c}">${esc(T.classes[c])}</option>`).join('');
   $('#state').innerHTML = Object.entries(STATES).map(([k, [n]]) => `<option value="${k}">${esc(n)}</option>`).join('');
