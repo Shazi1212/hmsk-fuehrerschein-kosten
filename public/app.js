@@ -8,7 +8,8 @@ const $$ = s => [...document.querySelectorAll(s)];
 const STORE = 'hmsk-fuehrerschein-kosten-v1';
 const SP = ['rural', 'motorway', 'night'];
 const GROUP_KEYS = { school: ['base', 'material', 'lesson', 'special', 'testDrive', 'presentTheory', 'presentPractical'], official: ['theoryFee', 'practicalFee'], other: ['office', 'eyeTest', 'firstAid', 'photo'] };
-const COLORS = { school: '#00FF9C', official: '#6FBF92', other: '#2C8A5C', retake: '#FFB547' };
+// cost groups: distinct A1 hues, each ≥ 5:1 against the card background
+const COLORS = { school: '#1E4C8A', official: '#2B6440', other: '#6B3F8F', retake: '#A3262A' };
 
 let lang = pickLang();
 let state = loadState();

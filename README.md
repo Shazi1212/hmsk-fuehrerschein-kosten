@@ -42,4 +42,4 @@ The tests check class B totals worked out by hand, the official fees, the region
 | `public/i18n.js` | German and English texts |
 | `public/app.js`, `index.html`, `app.css` | the UI |
 
-To self-host, set `LINK_BASE` in `public/data.js` if the top-strip links should point somewhere other than hmsk.life. Fonts (Martian Mono, Geist; SIL Open Font License) are in `public/assets/fonts/`.
+To self-host, set `LINK_BASE` in `public/data.js` if the top-strip links should point somewhere other than hmsk.life. Fonts (Newsreader, Public Sans; SIL Open Font License) are in `public/fonts/`; the shared hmsk.life look is in `public/letterpress.css`.

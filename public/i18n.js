@@ -6,7 +6,7 @@ export const TEXT = {
     langSwitch: 'EN', langSwitchLabel: 'Show in English',
     h1: 'Was kostet der Führerschein 2026 wirklich?',
     sub: 'Klasse, Region und Fahrstunden wählen: Der Rechner zeigt eine Spanne von günstig bis teuer und jede Position einzeln, von der Grundgebühr bis zum Passfoto. Amtliche Gebühren mit Quelle, Marktpreise als Schätzung. Haben Sie schon ein Angebot Ihrer Fahrschule, tragen Sie die Preise ein. Läuft im Browser, nichts wird gesendet.',
-    sClass: '--klasse', sRegion: '--region', sHours: '--fahrstunden', sDone: '--schon-erledigt', sRetake: '--wiederholung', sQuote: '--angebot',
+    sClass: 'Klasse', sRegion: 'Region', sHours: 'Fahrstunden', sDone: 'Schon erledigt', sRetake: 'Wiederholung', sQuote: 'Angebot',
     cls: 'Führerscheinklasse',
     classes: {
       B: 'B · Auto', B197: 'B197 · Auto, Prüfung mit Automatik', BE: 'BE · Auto mit Anhänger (hat schon B)',
@@ -39,7 +39,7 @@ export const TEXT = {
     retakeHint: 'Durchfallen ist häufig, vor allem in der Theorie. Hier sehen Sie, was eine Wiederholung kostet.',
     quoteHint: 'Preise aus dem Angebot Ihrer Fahrschule eintragen. Leere Felder nutzen die Schätzung (grau). Ein eigener Preis gilt für alle drei Szenarien.',
     quoteSchool: 'Fahrschule', quoteOfficial: 'Amtlich (TÜV / DEKRA)', quoteOther: 'Sonstiges',
-    rTitle: '$ fuehrerschein --kosten',
+    rTitle: 'Ihre Führerschein-Kosten',
     totalLabel: 'Realistische Gesamtkosten (typisch)',
     range: (lo, hi) => `Spanne: ${lo} bis ${hi}`,
     scen: { low: 'günstig', typ: 'typisch', high: 'teuer' },
@@ -63,7 +63,7 @@ export const TEXT = {
     reform: 'Das Bundeskabinett hat am 20. Mai 2026 die Reform „Bezahlbarer Führerschein“ beschlossen: Präsenzpflicht im Theorieunterricht entfällt, keine feste Zahl an Sonderfahrten mehr (nur die Arten bleiben Pflicht), Fragenkatalog um etwa ein Drittel kleiner, reine Fahrzeit in der Prüfung auf 25 Minuten. Der Bundestag hat das Gesetz am 24. September 2026 in erster Lesung beraten; Gesetz und Verordnung sind noch nicht in Kraft. Geplant ist Anfang 2027, das ist aber nicht sicher. Bis dahin gelten die bisherigen Regeln, mit denen dieser Rechner rechnet. Um die Reform durchzuspielen, setzen Sie die Sonderfahrten niedriger.',
     notify: 'Benachrichtigen, wenn die Reform gilt',
     share: 'Link kopieren', shared: 'Link kopiert', print: 'Drucken', reset: 'Zurücksetzen',
-    srcTitle: '$ cat quellen-und-annahmen.md',
+    srcTitle: 'Quellen und Annahmen',
     disclaimer: 'Eine Schätzung, kein Angebot. Amtliche Gebühren stammen aus der GebOSt (gültig seit 31.01.2024). Fahrschulpreise, Stundenzahlen und das regionale Preisniveau sind Schätzungen aus veröffentlichten Preislisten und Ratgebern (Stand Oktober 2026) und schwanken stark zwischen Fahrschulen. Fragen Sie mehrere Fahrschulen nach ihrer Preisliste; sie müssen sie aushängen.',
     assumptions: [
       'Amtliche Prüfgebühren (GebOSt, brutto inkl. 19 % USt): Theorieprüfung 24,99 € je Versuch; praktische Prüfung 129,83 € für B, B197, BE und AM, 162,67 € für A1, A2 und A; Mofa-Prüfung inkl. Prüfbescheinigung 26,54 €, Wiederholung 17,26 €. TÜV und DEKRA berechnen bundesweit dieselben Beträge.',
@@ -92,7 +92,7 @@ export const TEXT = {
     langSwitch: 'DE', langSwitchLabel: 'Auf Deutsch anzeigen',
     h1: 'What does a driving licence cost in Germany in 2026?',
     sub: 'Pick the class, region and number of lessons: the calculator shows a range from cheap to expensive and every item on its own, from the registration fee to the passport photo. Official fees with sources, market prices as estimates. If you already have a quote from a driving school, enter its prices. Runs in your browser, nothing is sent anywhere.',
-    sClass: '--class', sRegion: '--region', sHours: '--lessons', sDone: '--already-done', sRetake: '--retakes', sQuote: '--quote',
+    sClass: 'Licence class', sRegion: 'Region', sHours: 'Driving lessons', sDone: 'Already done', sRetake: 'Retakes', sQuote: 'Quote',
     cls: 'Licence class',
     classes: {
       B: 'B · Car', B197: 'B197 · Car, test in an automatic', BE: 'BE · Car with trailer (already have B)',
@@ -125,7 +125,7 @@ export const TEXT = {
     retakeHint: 'Failing is common, especially the theory test. See here what a retake costs.',
     quoteHint: 'Enter the prices from your driving school\'s quote. Empty fields use the estimate (grey). Your own price applies to all three scenarios.',
     quoteSchool: 'Driving school', quoteOfficial: 'Official (TÜV / DEKRA)', quoteOther: 'Other',
-    rTitle: '$ fuehrerschein --cost',
+    rTitle: 'Your driving licence cost',
     totalLabel: 'Realistic total cost (typical)',
     range: (lo, hi) => `Range: ${lo} to ${hi}`,
     scen: { low: 'cheap', typ: 'typical', high: 'expensive' },
@@ -149,7 +149,7 @@ export const TEXT = {
     reform: 'The federal cabinet adopted the "affordable driving licence" reform on 20 May 2026: no more compulsory classroom theory, no fixed number of special drives (only the kinds stay required), a question catalogue about a third smaller, and 25 minutes of pure driving time in the test. The Bundestag debated the law in first reading on 24 September 2026; the law and the regulation are not in force yet. Early 2027 is planned but not certain. Until then the current rules apply, and this calculator uses them. To try the reform, set fewer special drives.',
     notify: 'Tell me when the reform applies',
     share: 'Copy link', shared: 'Link copied', print: 'Print', reset: 'Reset',
-    srcTitle: '$ cat sources-and-assumptions.md',
+    srcTitle: 'Sources and assumptions',
     disclaimer: 'An estimate, not a quote. Official fees come from the GebOSt (valid since 31 Jan 2024). Driving school prices, lesson counts and the regional price level are estimates from published price lists and guides (October 2026) and vary a lot between schools. Ask several schools for their price list; they have to display it.',
     assumptions: [
       'Official exam fees (GebOSt, gross incl. 19 % VAT): theory test €24.99 per attempt; practical test €129.83 for B, B197, BE and AM, €162.67 for A1, A2 and A; Mofa test incl. certificate €26.54, retake €17.26. TÜV and DEKRA charge the same amounts nationwide.',
