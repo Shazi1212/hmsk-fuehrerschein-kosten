@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Führerschein-Kosten-Rechner · hmsk.life</title>
+<meta name="robots" content="noindex">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#EFF1F2">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="letterpress.css?v=2">
+<link rel="stylesheet" href="embed.css?v=3">
+</head>
+<body>
+
+<div class="w">
+  <header class="w-head">
+    <p class="eyebrow">Führerschein-Kosten-Rechner</p>
+    <h1 id="eTitle">Was kostet der Führerschein?</h1>
+    <p class="school" id="eSchool" hidden></p>
+  </header>
+
+  <form id="eForm" class="w-form" novalidate autocomplete="off">
+    <div><label for="cls" data-e="cls">Klasse</label><select id="cls"></select></div>
+    <div><label for="hours" data-e="hours">Fahrstunden</label><input id="hours" type="number" inputmode="numeric" min="0" max="200" step="1"></div>
+    <div><label for="state" data-e="state">Bundesland</label><select id="state"></select></div>
+    <div><label for="town" data-e="town">Ortsgröße</label><select id="town"></select></div>
+  </form>
+
+  <section class="w-res" aria-live="polite" aria-labelledby="eTotalLbl">
+    <p class="lbl" id="eTotalLbl" data-e="total">Realistische Gesamtkosten (typisch)</p>
+    <p class="big" id="total">0</p>
+    <dl class="kv" id="scen"></dl>
+    <div class="bar" id="bar" role="img"></div>
+    <ul class="legend" id="legend"></ul>
+    <p class="w-note" id="eNote"></p>
+  </section>
+
+  <footer class="w-foot">
+    <a id="eMore" href="https://hmsk.life/de/tools/fuehrerschein-kosten/" target="_blank" rel="noopener" data-e="more">Alle Positionen</a>
+    <a id="eCredit" class="credit" href="https://hmsk.life/de/tools/fuehrerschein-kosten/" target="_blank" rel="noopener" data-e="credit">Rechner von hmsk.life</a>
+  </footer>
+</div>
+
+<script type="module" src="embed.js?v=2"></script>
+</body>
+</html>

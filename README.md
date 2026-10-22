@@ -33,6 +33,23 @@ node --test tests/
 
 The tests check class B totals worked out by hand, the official fees, the regional factor, own-quote overrides, the class rules (BE, Mofa, B197), retakes and that every class computes.
 
+## Embed widget
+
+`public/embed.html` is a compact version for other sites (driving schools, blogs), from 320 px wide:
+
+```html
+<iframe src="https://hmsk.life/apps/fuehrerschein-kosten/embed.html" title="Führerschein-Kosten-Rechner"
+  width="100%" height="680" style="border:0;max-width:640px" loading="lazy"></iframe>
+```
+
+Optional URL parameters: `city` (prefills Bundesland and town size for cities over 100,000 people and state capitals,
+and shows the city in the heading), `state` (e.g. `BY`), `town` (`rural`, `small`, `medium`, `large`), `cls`, `hours`,
+`lang=en`, and a driving school's own prices `base`, `material`, `lesson`, `special`, `presentTheory`,
+`presentPractical`, `testDrive` (EUR, `57,50` works). `school=<name>` is shown as "Preise von <name>" only together
+with at least one own price. No storage, no cookies; the credit link carries
+`utm_source=<embedding host>&utm_medium=widget&utm_campaign=fuehrerschein-widget`. Parameters are parsed in
+`public/embed-params.js` (tested). On hmsk.life only this page may be framed by other sites (`.htaccess`).
+
 ## Files
 
 | File | What |
@@ -41,5 +58,6 @@ The tests check class B totals worked out by hand, the official fees, the region
 | `public/calc.js` | pure calculation, no DOM |
 | `public/i18n.js` | German and English texts |
 | `public/app.js`, `index.html`, `app.css` | the UI |
+| `public/embed.html`, `embed.js`, `embed.css`, `embed-params.js` | the embed widget |
 
 To self-host, set `LINK_BASE` in `public/data.js` if the top-strip links should point somewhere other than hmsk.life. Fonts (Newsreader, Public Sans; SIL Open Font License) are in `public/fonts/`; the shared hmsk.life look is in `public/letterpress.css`.

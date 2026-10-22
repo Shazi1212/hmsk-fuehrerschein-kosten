@@ -85,6 +85,15 @@ export const TEXT = {
       ['Fahrerlaubnis-Verordnung (FeV)', 'fev'],
     ],
     checked: d => `Geprüft am ${d}.`,
+    // embed widget (embed.html)
+    embed: {
+      title: 'Was kostet der Führerschein?', titleCity: c => `Was kostet der Führerschein in ${c}?`,
+      school: s => `Preise von ${s}`,
+      cls: 'Klasse', hours: 'Fahrstunden', state: 'Bundesland', town: 'Ortsgröße', total: 'Realistische Gesamtkosten (typisch)',
+      note: d => `Schätzung, kein Angebot. Prüfgebühren amtlich (Stand ${d}), Fahrschulpreise geschätzt.`,
+      noteSchool: (s, d) => `Preise von ${s}, Prüfgebühren amtlich (Stand ${d}), Rest geschätzt. Kein verbindliches Angebot.`,
+      more: 'Alle Positionen', credit: 'Rechner von hmsk.life',
+    },
   },
   en: {
     docTitle: 'German driving licence cost calculator 2026 (Führerschein)',
@@ -171,5 +180,13 @@ export const TEXT = {
       ['Driving Licence Regulation (FeV)', 'fev'],
     ],
     checked: d => `Checked on ${d}.`,
+    embed: {
+      title: 'What does a driving licence cost?', titleCity: c => `What does a driving licence cost in ${c}?`,
+      school: s => `Prices from ${s}`,
+      cls: 'Class', hours: 'Lessons', state: 'Federal state', town: 'Town size', total: 'Realistic total cost (typical)',
+      note: d => `An estimate, not a quote. Official exam fees (as of ${d}), driving school prices estimated.`,
+      noteSchool: (s, d) => `Prices from ${s}, official exam fees (as of ${d}), the rest estimated. Not a binding quote.`,
+      more: 'Every item', credit: 'Calculator by hmsk.life',
+    },
   },
 };
